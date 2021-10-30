@@ -69,11 +69,11 @@ Done through gitcoin.
 ### Building server
 Used a machine running RHEL 8.4 with go1.17.2 installed from source
 because the official Red Hat repository doesn't provide golang later than 1.15.
+All commands should be executed with *root*.
 
 ### Golang version
 The %build section of the spec file checks if the Golang version on the building machine complies
 with the requirement in the *go.mod* file from the harmony github repo.
 
 ### Everything else
-All commands should be executed with *root*.
 I had to make assumptions during development, please let me know if you need anything.
