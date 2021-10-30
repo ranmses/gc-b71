@@ -35,7 +35,6 @@ Copy the repo file:
 ```shell
 cp harmony-one.repo /etc/yum.repos.d/.
 yum clean all && yum repolist
-yum install harmony-one
 ```
 
 On Amazon Linux 2, install the newer openssl-libs:
@@ -49,6 +48,7 @@ Testing:
 ```shell
 yum list harmony-one --showduplicates
 yum install harmony-one
+harmony version
 # Harmony (C) 2020. harmony, version v7174-v4.3.0-0-g15f9b2d1 (root@ 2021-10-30T02:31:53-0300)
 yum remove harmony-one
 yum install harmony-one-4.0.0
