@@ -38,7 +38,7 @@ yum clean all && yum repolist
 yum install harmony-one
 ```
 
-On Amazon Linux 2, also install the newer openssl-libs:
+On Amazon Linux 2, install the newer openssl-libs:
 ```shell
 yum install openssl11-libs
 ```
