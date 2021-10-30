@@ -49,9 +49,9 @@ yum install openssl11-libs
 
 This sets the package name to *harmony-one*. The RPM package installs binaries *harmony* and *bootnode*; it also installs *mcl* and *bls* libs. The harmony version should be user-defined as desired in #1. Both release and go version requirement are dynamically defined.
 
-> Create the necessary dependency metadata initially with a personal repo (to point to Harmony later on)**
+> Create the necessary dependency metadata initially with a personal repo (to point to Harmony later on)
 
-See the **pub** directory.
+See the `harmony-one.repo` file and the `pub/yum/x86_64` directory.
 
 > Provide the guidelines on how to add the source RPM-based CentOS/RHEL/AL2 to enable installs
 
@@ -59,7 +59,7 @@ See #3. Tested with clients running RHEL 8.4, CentOS 8.4 and Amazon Linux 2.
 
 > Ensure the setup and installation abides by Harmony and Linux guidelines (e.g. permissions, install path, etc.)
 
-See the *harmony-one.spec.template* file.
+See the `harmony-one.spec.template` file.
 
 > Document the steps necessary to post the latest builds to the Linux repositories, if any
 
@@ -77,11 +77,11 @@ because the official Red Hat repository doesn't provide golang later than 1.15.
 All commands should be executed by *root*.
 
 ### Golang version
-On the spec file, the *%build* section checks if the Golang version on the building machine is newer
-than the requirement in the *go.mod* file from the harmony repo. 
+On the spec file, the `%build` section checks if the Golang version on the building machine is newer
+than the requirement in the `go.mod` file from the harmony repo. 
 
 ### Amazon Linux 2 vs RHEL 8
-Amazon Linux 2 is based on RHEL 7, not on RHEL 8 (hence the need for *openssl11-libs*). Nevertheless, the same RPM
+Amazon Linux 2 is based on RHEL 7, not on RHEL 8 (hence the need for `openssl11-libs`). Nevertheless, the same RPM
 seems to work as expected on amzn2. One should note that, in the future, this may impose a need for having more
 than one RPM build, e.g. *el7* and *el8*.
 
