@@ -35,7 +35,12 @@ Copy the repo file:
 ```shell
 cp harmony-one.repo /etc/yum.repos.d/.
 yum clean all && yum repolist
-yum install harmony-one-4.0.0-0
+yum install harmony-one
+```
+
+An additional package is necessary to for running on Amazon Linux 2:
+```shell
+yum install openssl11-libs
 ```
 
 ## Comments - Description and Acceptance Criteria
