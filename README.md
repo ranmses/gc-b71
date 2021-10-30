@@ -47,6 +47,24 @@ For testing purposes, the `harmony-one.repo` file assumes that this repository w
 Testing:
 ```shell
 yum list harmony-one --showduplicates
+# Loaded plugins: langpacks, priorities, update-motd
+# Available Packages
+# harmony-one.x86_64           4.0.0-0            harmony-one_gc-b71
+# harmony-one.x86_64           4.0.1-0            harmony-one_gc-b71
+# harmony-one.x86_64           4.1.0-0            harmony-one_gc-b71
+# harmony-one.x86_64           4.1.1-0            harmony-one_gc-b71
+# harmony-one.x86_64           4.1.2-0            harmony-one_gc-b71
+# harmony-one.x86_64           4.1.3-0            harmony-one_gc-b71
+# harmony-one.x86_64           4.1.4-0            harmony-one_gc-b71
+# harmony-one.x86_64           4.1.5-0            harmony-one_gc-b71
+# harmony-one.x86_64           4.1.6-0            harmony-one_gc-b71
+# harmony-one.x86_64           4.1.7-0            harmony-one_gc-b71
+# harmony-one.x86_64           4.1.8-0            harmony-one_gc-b71
+# harmony-one.x86_64           4.1.9-0            harmony-one_gc-b71
+# harmony-one.x86_64           4.1.10-0           harmony-one_gc-b71
+# harmony-one.x86_64           4.2.0-0            harmony-one_gc-b71
+# harmony-one.x86_64           4.2.1-0            harmony-one_gc-b71
+# harmony-one.x86_64           4.3.0-0            harmony-one_gc-b71
 yum install harmony-one
 harmony version
 # Harmony (C) 2020. harmony, version v7174-v4.3.0-0-g15f9b2d1 (root@ 2021-10-30T02:31:53-0300)
