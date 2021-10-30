@@ -42,7 +42,7 @@ yum install harmony-one-4.0.0-0
 
 > Package and distribute the Harmony binaries for Linux's CentOS/RHEL/AL2 distribution. For example, CentOS's yum install harmony-one should initiate installation of Harmony binaries alongside all the dependencies. Also allow the installation to be pinned to a certain version.
 
-This sets the package name to *harmony-one*. The RPM package installs binaries *harmony*, *bootnode*, and also *mcl* and *bls* libs.
+This sets the package name to *harmony-one*. The RPM package installs binaries *harmony*, *bootnode*, and also *mcl* and *bls* libs. The harmony version should be defined as desired in #1. Both release and go version requirement are dynamically defined.
 
 > Create the necessary dependency metadata initially with a personal repo (to point to Harmony later on)**
 
