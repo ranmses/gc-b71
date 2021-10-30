@@ -1,0 +1,76 @@
+Name:           harmony-one
+Version:        HVRS
+Release:        HREL
+Summary:        Harmony One
+
+License:        LGPL-3.0
+URL:            https://github.com/harmony-one
+Source0:        %{name}-%{version}.tar
+
+# rhel8 building machine
+BuildRequires:  glibc-devel, gmp-devel, openssl-libs, openssl-devel, gcc-c++, make
+
+# common requirement
+Requires:       gmp-devel, openssl-libs
+
+# dont search for other requirements
+AutoReq:        no
+
+%description
+Harmony One RPM package
+
+%prep
+%autosetup
+
+# minimum go version
+%define gomodversion GVRS
+
+# shebang warnings fix
+%undefine __brp_mangle_shebangs
+
+# do not generate debuginfo packages
+%define debug_package %{nil}
+
+%build
+# look for Go binary
+source /etc/profile
+if [[ ! -f $(which go 2>/dev/null) ]]; then
+	echo "ERROR! Unable to find the Go binary by running 'which go'."
+	echo "Please make sure that Go is correctly installed."
+	exit 1
+fi
+# check Go version
+req=%{gomodversion}
+cur=$(go env GOVERSION | sed 's/go//g')
+old=$(echo "$cur $req" | tr ' ' '\n' | sort -V | head -1)
+if [[ "$old" != "$req" ]]; then
+	echo "ERROR! Current version ($cur) is older than the requirement ($req)."
+	echo "Please make sure that Go is correctly installed."
+	exit 2
+fi	
+pwd
+export GOPATH=$(pwd)/go
+cd ${GOPATH}/src/github.com/harmony-one/harmony
+go mod tidy &> /dev/null || { echo "ERROR! Problems when running 'go mod tidy'."; exit 3; }
+make        &> /dev/null || { echo "ERROR! Problems running 'make'.";             exit 4; }
+
+%install
+install -m 0755 -d %{buildroot}/usr/sbin %{buildroot}/usr/lib64
+install -m 0755 go/src/github.com/harmony-one/harmony/bin/harmony           %{buildroot}/usr/sbin/.
+install -m 0755 go/src/github.com/harmony-one/harmony/bin/bootnode          %{buildroot}/usr/sbin/.
+install -m 0755 go/src/github.com/harmony-one/harmony/bin/libmcl.so         %{buildroot}/usr/lib64/.
+install -m 0755 go/src/github.com/harmony-one/harmony/bin/libbls384_256.so  %{buildroot}/usr/lib64/.
+
+%check
+./go/src/github.com/harmony-one/harmony/bin/harmony version
+
+%clean
+rm -rf /root/rpmbuild/BUILD/*
+rm -rf /root/rpmbuild/BUILDROOT/*
+
+%files
+/usr/sbin/harmony
+/usr/sbin/bootnode
+/usr/lib64/libmcl.so
+/usr/lib64/libbls384_256.so
+
