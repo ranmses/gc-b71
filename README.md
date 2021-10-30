@@ -43,6 +43,19 @@ On Amazon Linux 2, install the newer openssl-libs:
 yum install openssl11-libs
 ```
 
+For testing purposes, the `harmony-one.repo` file assumes that this repository was cloned to `/tmp/gc-b71`.
+
+Testing:
+```shell
+yum list harmony-one --showduplicates
+yum install harmony-one
+# Harmony (C) 2020. harmony, version v7174-v4.3.0-0-g15f9b2d1 (root@ 2021-10-30T02:31:53-0300)
+yum remove harmony-one
+yum install harmony-one-4.0.0
+harmony version
+# Harmony (C) 2020. harmony, version v6933-v4.0.0-0-g78759217 (root@ 2021-10-30T04:06:49-0300)
+```
+
 ## Comments - Description and Acceptance Criteria
 
 > Package and distribute the Harmony binaries for Linux's CentOS/RHEL/AL2 distribution. For example, CentOS's yum install harmony-one should initiate installation of Harmony binaries alongside all the dependencies. Also allow the installation to be pinned to a certain version.
@@ -81,9 +94,9 @@ On the spec file, the `%build` section checks if the Golang version on the build
 than the requirement in the `go.mod` file from the harmony repo. 
 
 ### Amazon Linux 2 vs RHEL 8
-Amazon Linux 2 is based on RHEL 7, not on RHEL 8 (hence the need for `openssl11-libs`). Nevertheless, the same RPM
-seems to provide binaries that also works on amzn2. One should note that, in the future, this may impose a need for
-having more than one RPM build, e.g. *el7* and *el8*.
+Amazon Linux 2 is based on RHEL 7, not on RHEL 8 (hence the need for `openssl11-libs`, only available for EL7-based
+distros). Nevertheless, the same RPM seems to provide working binaries on all platforms. One should note that, in the future, this difference between distros may impose a need for more than one RPM build for each version, e.g. *el7*
+and *el8*.
 
 ### Everything else
 I had to make assumptions during development, please let me know if you need anything.

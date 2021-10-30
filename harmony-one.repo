@@ -1,4 +1,5 @@
 [harmony-one_gc-b71]
 name=Harmony One - Gitcoin Bounty 71
-baseurl=https://github.com/ranmses/gc-b71/pub/yum/$basearch/
+baseurl=file:///tmp/gc-b71/pub/yum/x86_64/
 enabled=1
+gpgcheck=0
