@@ -18,7 +18,7 @@ ls -l /root/rpmbuild/RPMS/x86_64/harmony-one-${version}-${release}.x86_64.rpm
 
 For demonstration purposes, the `pub/yum/x86_64` directory contains all v4.x.x RPMs created as follows:
 ```shell
-for v in $(cat version_list.txt) ; do ./pre_rpmbuild.sh ${v} && rpmbuild -bb /root/rpmbuild/SPECS/harmony-one-${v}.spec ; done
+for v in $(cat versions.txt) ; do ./pre_rpmbuild.sh ${v} && rpmbuild -bb /root/rpmbuild/SPECS/harmony-one-${v}.spec ; done
 ```
 
 ### 2. Populating the yum repository (server)
