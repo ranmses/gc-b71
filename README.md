@@ -82,8 +82,8 @@ than the requirement in the `go.mod` file from the harmony repo.
 
 ### Amazon Linux 2 vs RHEL 8
 Amazon Linux 2 is based on RHEL 7, not on RHEL 8 (hence the need for `openssl11-libs`). Nevertheless, the same RPM
-seems to work as expected on amzn2. One should note that, in the future, this may impose a need for having more
-than one RPM build, e.g. *el7* and *el8*.
+seems to provide binaries that also works on amzn2. One should note that, in the future, this may impose a need for
+having more than one RPM build, e.g. *el7* and *el8*.
 
 ### Everything else
 I had to make assumptions during development, please let me know if you need anything.
