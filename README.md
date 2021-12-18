@@ -136,7 +136,7 @@ With the 8.5 releases of RHEL and CentOS, go1.16.7 is now available for install 
 ### Container Testing - Intro
 Compiling software or developing RPMs on containers is **not** recommended (best to just provide customized docker images with the software already installed instead). But it is *possible* to make it work on *some* cases.
 
-During evaluation I was made aware of the Harmony team desire to use containers for development and testing, so I decided to make this acommodation.
+During evaluation I was made aware of the Harmony team desire to use containers for development and testing, so I decided to make this accommodation.
 
 ### Container Testing - Steps
 
